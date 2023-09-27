@@ -1,0 +1,23 @@
+
+   RuntimeException 
+
+  Failed to listen on "tcp://0.0.0.0:8090": Address already in use (EADDRINUSE)
+
+  at vendor/react/socket/src/TcpServer.php:184
+    180|                 // @link https://3v4l.org/3qOBl
+    181|                 $errno = SocketServer::errno($errstr);
+    182|             }
+    183| 
+  > 184|             throw new \RuntimeException(
+    185|                 'Failed to listen on "' . $uri . '": ' . $errstr . SocketServer::errconst($errno),
+    186|                 $errno
+    187|             );
+    188|         }
+
+      [2m+2 vendor frames [22m
+  3   app/Console/Commands/WebSocketServer.php:48
+      Ratchet\Server\IoServer::factory()
+
+      [2m+13 vendor frames [22m
+  17  artisan:37
+      Illuminate\Foundation\Console\Kernel::handle()
